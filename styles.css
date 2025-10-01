@@ -2,7 +2,6 @@ p{
     padding-top: 10px;
     padding-left: 150px;
     padding-right: 150px;
-    /*display: flex;*/
     align-items: center;
     text-align: left;
     justify-content: center;
@@ -119,5 +118,3 @@ svg{
 .chart > div > span{
     background-color: rgb(102, 0, 0);
 }
-
-/*width="639.33px" height="354.67px"*/
