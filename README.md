@@ -1,0 +1,1 @@
+The purpose of this website is to serve as a personal portfolio for myself, Alex Mancini, which gives an overview of my work as well some visualizations. The pages can be navigated using the buttons in the header. On the visualizations page, there is a star that changes to a random colour upon clicking.
