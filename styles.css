@@ -113,6 +113,11 @@ svg{
     flex:1;
 }
 
+.canvas{
+
+    width: 75%;
+}
+
 
 .container {
 
