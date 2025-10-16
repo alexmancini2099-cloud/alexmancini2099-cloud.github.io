@@ -3,6 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite-api@5.6.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-tooltip"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+    <script>
+      const options = {
+        config: {
+    
+        },
+        init: (view) => {
+  
+          view.tooltip(new vegaTooltip.Handler().call);
+        },
+        view: {
+       
+          loader: vega.loader({
+            baseURL: "https://cdn.jsdelivr.net/npm/vega-datasets@2/",
+          }),
+          renderer: "canvas",
+        },
+      };
+
+      
+      vl.register(vega, vegaLite, options);
+    </script>
+
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -46,7 +75,67 @@
         </svg>
     </div>
   
+
+    <div class="container">
+      
+       <h2 class="vis-h2">Data Summary</h2>
+       <p class="vis-p">In terms of Central Tendency, the average global sales of games overall is 0.54, and the median is 0.17. The variance between values is about 2.4, and the standard deviation is about 1.55. The range between the highest and lowest values is about 81.99.
+      </p>
+     <h3 class="vis-h3">Genre</h3>
+      <div id="view"></div>
+       <p class="vis-p">As this visualization shows, overall there are more action games overall, with sports being the second most common game genre. These results aren’t too surprising. “Action” is a very broad category, so any game involving combat or thrills could potentially fit this genre. Sports games are a bit of a surprise, but it makes sense when you consider that they usually get updated yearly.</p>
+      <h3 class="vis-h3">How many games does each platform have?</h3>
+      <div id="view2"></div>
+      <p class="vis-p">According to this dataset, the platform with the most games on it is the Nintendo DS, with the Playstation 2 having an almost equal amount. These results aren’t too surprising. Both of these consoles came out in the early-mid 2000s, when video games were becoming more mainstream, and 3D graphics were commonplace. Many companies were licensing their franchises to get video game adaptations around this time, such as Star Wars, Spider-Man, Spongebob Squarepants, Batman, and more. The DS was also the first handheld console to feature 3D graphics, and many publishers likely wanted to get games on it. The best selling games on average for these platforms are New Super Mario Bros for the DS, and Grand Theft Auto: San Andreas for the PS2. New SMB makes sense, as it was the first “big” reboot of the 2D perspective Mario games, and was the first to feature 3D graphics. GTA: San Andreas was coming off of GTA 3, which was also a big hit for its open world sandbox gameplay.</p>
+      <h3 class="vis-h3">Best selling game on each platform</h3>
+      <div id="view3"></div>
+      <p class="vis-p">One thing that surprised me was that the Wii didn’t have as many games on it. The Wii was my first console as a kid, and I remember there being a Wii version of every game, as well as a ton of shovelware. I suppose my perspective of the Wii from my childhood doesn’t always reflect reality. That being said, when looking at the best selling game on average, Wii Sports blows every other game away. This doesn’t surprise me at all. Wii Sports came with my Wii as a kid, and it was a game that my entire family played. The intuitive and simple controls made it easy for anyone to pick up and play, and the game showcased the Wii’s motion control gimmick perfectly.</p>
+
+
+
+      <h2 class="vis-h2">Global Sales by Genre/Platform</h2>
+      <h3 class="vis-h3">By platform</h3>
+      <div id="view4"></div>
+      <p class="vis-p">According to the data, GameBoy games sold better on average, with Nintendo Entertainment System (NES) games not far behind. Both of these platforms selling games isn’t too surprising. The GameBoy was the first “real” handheld console, which led to a lot of people buying games to play on the go. Additionally, there were 2 generations of Pokemon games on the GameBoy (the dataset seems to be combining GameBoy and GameBoy Color sales), which were immensely popular at the time. The NES was the most advanced home game platform of the era, and a ton of iconic game franchises such as The Legend of Zelda, Metroid, and Final Fantasy had their start on it. Of course Mario had plenty of games on the NES as well. What surprised me was that the Wii, PS2, and Xbox 360 weren’t anywhere close, but that probably because at that point people were more careful about what games they buy, and the influx of online game reviews makes it easier to discern which games are worth buying.
+ </p>
+      <h3 class="vis-h3">By genre</h3>
+      <div id="view5"></div>
+      <p class="vis-p">When comparing genres, platformer games sell better on average, with shooters being second place. I was actually surprised that platformers were first, as the genre isn’t as popular with casual gamers today. That being said, this dataset only accounts for 2020 and below, so the data makes more sense. There were a lot of platformers back in the pre-2000s, including iconic franchises like Super Mario and Sonic the Hedgehog. When accounting for that era, the data makes sense. Shooters being popular is not surprising at all. Franchises like Halo, Battlefield, Counter Strike, and especially Call of Duty have been dominating for years. And of course, this dataset would include retro shooters like Asteroids and Space Invaders as well.</p>
+      <p class="vis-p">For both of these visualizations, I chose to use bar charts. Since all we needed to know was the biggest number, the clearest way to convey this was through bars that showed the difference between fields. I also used colour to easily separate each field.</p>
+
+
+
+      <h2 class="vis-h2">Sales over time by Genre, Platform, and Publisher</h2>
+      <h3 class="vis-h3">Sales over time by genre</h3>
+      <div id="view6"></div>
+      <p class="vis-p">According to the dataset, shooters and platformers peaked in sales in the mid 80s, then fell to the same level as others during the 90s. This makes sense, as those two genres were basically the only 2 types of games you could make at that time, with a few exceptions. Super Mario, Donkey Kong, Asteroids, Galaga, Space Invaders, a lot of super retro games fall into one of these categories. Shooters also peaked in sales in the mid 2010s. This is unsurprising, as shooters are immensely popular in the modern gaming world, especially with casual fans. Call of Duty games have consistently been one of if not the best selling games of their release year for over a decade now. For this visualization, I used a line graph to showcase how genres have risen and fallen over time.</p>
+
+      <h3 class="vis-h3">Sales over time by platform</h3>
+      <div id="view7"></div>
+      <p class="vis-p">For platforms, the patterns I noticed were relatively expected based on the data I went through earlier. Nintendo dominated the 80s and 90s, with Playstation competing with them in the early-mid 2000s. However, Xbox managed to take the lead during the late 2000s and early 2010s. From the mid-2010s onwards, PS4 was the dominant platform for average sales. I used a circle graph to illustrate which games were causing the dominance in sales for each year. </p>
+      <h3 class="vis-h3">Sales over time by publisher</h3>
+      <div id="view12"></div>
+      <p class="vis-p">For publishers, it seems like Nintendo ruled for sales up until the 2000s and especially 2010s. This is likely because Nintendo had something of a monopoly as a video game publisher in the 80s, with very little competition. However, with Sony, Microsoft, and other publishers rising in the 21st century, there is more variety in top-selling companies.</p>
+
+
+      <h2 class="vis-h2">Regional Sales by Platform</h2>
+      <h3 class="vis-h3">North America</h3>
+      <div id="view8"></div>
+      <h3 class="vis-h3">Japan</h3>
+      <div id="view9"></div>
+      <h3 class="vis-h3">European Union</h3>
+      <div id="view10"></div>
+      <h3 class="vis-h3">Other regions</h3>
+      <div id="view11"></div>
+      <p class="vis-p">For regional sales for platforms, the dataset looks like this. For North America, best selling games on average are on the NES and GameBoy. For Japan, NES, GameBoy, and Super NES  (SNES). For the European Union, GameBoy, PS4, and PS3. For other regions, it’s PS4, with the GameBoy, PS3, and PS2 close behind. These results aren’t incredibly surprising, given the prior results. The PS4 was the most popular console during the previous generation, so it’s unsurprising that its games sold consistently well across regions. I used pie charts for these visualizations to see the rough percentage that each platform made up of the region’s sales.</p>
+      
+      <h2 class="vis-h2">Visual Story: Pokemon sales over time</h2>
+      <h3 class="vis-h3">Pokemon game sales over time</h3>
+      <div id="view13"></div>
+      <p class="vis-p">For my visual story, I chose to illustrate the Pokemon franchise’s sales performance over time. I wanted to see how the popular franchise’s been doing since it exploded in popularity in the late 90s, and I was also curious to see how the remakes and spinoffs performed compared to the main series games. According to this visualization, the franchise’s main games peaked in sales with the first generation of games, Red and Blue on the GameBoy. From there, it steadily declined, but rose again with Diamond and Pearl on the DS. It steadily declines in sales again up to the most recent year. The remakes (i.e. Fire Red and Leaf Green) tend to sell worse than the main games. The spinoffs sell the least, following a similar trend of peaking in the GameBoy and DS eras. What this data shows is that many games enjoyed the novelty of Pokemon during its introduction and revitalization in the DS era, and that the spinoffs and remakes are likely only popular with hardcore fans. With spinoffs, it could also be the case that players of these games are interested in the Pokemon universe, but not in its usual RPG mechanics, and they might prefer photography or dungeon crawler games, thus gravitating towards Pokemon Snap and the Mystery Dungeon series. For this visualization, I used a circle graph to illustrate how each game performed in sales.</p>
+    </div>
+    <script type="module" src="vis.js"></script>
+    
 </body>
 <canvas id="chart" height="600px" width="600px"></canvas>
-<script src="vis.js" type="text/javascript">  </script>
 </html>

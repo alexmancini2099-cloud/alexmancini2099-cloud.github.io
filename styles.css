@@ -64,9 +64,7 @@ body{
     color: rgb(139, 0, 113);
 }
 
-.vis-h2{
-    padding-left: 100px;
-}
+
 
 .image-container{
     display: grid;
@@ -115,6 +113,47 @@ svg{
     flex:1;
 }
 
-.chart > div > span{
-    background-color: rgb(102, 0, 0);
+
+.container {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    width: 75%;
+}
+
+
+#view, #view2, #view3, #view4, #view5, #view6, #view7, #view8, #view9, #view10, #view11, #view12, #view13 {
+  width: 100%;
+  height: 100%;
+  max-width: 800px;
+  padding-bottom: 20px;
+  padding-top:20px;
+  padding-left: 150px;
+
+}
+
+.vis-p{
+    align-items: left;
+    text-align: left;
+    justify-content: left;
+
+  
+}
+
+.vis-h2{
+    padding-top: 100px;
+    align-items: left;
+    text-align: left;
+    justify-content: left;
+ 
+}
+
+.vis-h3{
+    padding-top: 10px;
+    align-items: left;
+    text-align: left;
+    justify-content: left;
+
 }
